@@ -40,6 +40,6 @@ jobs:
       - name: Run and ping
         run: |
           docker pull flodenoir/devopslab5:latest
-          docker run --memory=512m --cpus=1 --name devopslab5 -p 80:80 flodenoir/devopslab5
+          docker run --memory=512m --cpus=1 --name devopslab5 -p 80:80 -d flodenoir/devopslab5
           sleep 3
           curl http://localhost:80
