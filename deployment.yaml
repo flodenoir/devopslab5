@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-devopslab5
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devopslab5
+  template:
+    metadata:
+      labels:
+        app: devopslab5
+    spec:
+      containers:
+      - name: devopslab5
+        image: flodenoir/devopslab5:latest
+        livenessProbe:
+          httpGet:
+            path: /checkAppHealth
+            port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 15
+        ports:
+        - containerPort: 80

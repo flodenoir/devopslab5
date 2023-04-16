@@ -12,6 +12,10 @@ app.get('/index', function (req, res) {
     res.sendFile(path.join(__dirname+'/index.html'));
 })
 
+app.get('/checkAppHealth', function (req, res) {
+    res.send("App is ready");
+});
+
 app.listen(PORT, () => {
     console.log("Listening at %s", PORT);
 })
